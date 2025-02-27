@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="{{ site.baseurl }}/">首页</a>
+        <a href="{{ site.baseurl }}/about.html">关于</a>
+        <a href="{{ site.baseurl }}/posts">帖子</a>
+        <a href="https://github.com/DCchuan" target="_blank">
+            <img src="{{ site.baseurl }}/assets/images/github-icon.svg" alt="GitHub" style="width: 20px; vertical-align: middle;">
+        </a>
+    </nav>
+    
+    <div class="container">
+        {{ content }}
+    </div>
+
+    <footer>
+        © {{ site.time | date: "%Y" }} 我的个人博客
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 滚动时触发动画（例如帖子列表）
+            $(window).scroll(function() {
+                $('.post-list li').each(function() {
+                    if ($(this).isInViewport()) {
+                        $(this).addClass('animated');
+                    }
+                });
+            });
+
+            // 自定义方法检测元素是否可见
+            $.fn.isInViewport = function() {
+                var elementTop = $(this).offset().top;
+                var elementBottom = elementTop + $(this).outerHeight();
+                var viewportTop = $(window).scrollTop();
+                var viewportBottom = viewportTop + $(window).height();
+                return elementBottom > viewportTop && elementTop < viewportBottom;
+            };
+
+            // 按钮点击反馈（如果有按钮）
+            $('button, a.button').click(function() {
+                $(this).addClass('clicked');
+                setTimeout(() => $(this).removeClass('clicked'), 200);
+            });
+        });
+    </script>
+
+    <style>
+        .animated {
+            animation: slideIn 0.5s ease-out;
+        }
+        .clicked {
+            transform: scale(0.95);
+            transition: transform 0.2s ease;
+        }
+    </style>
+</body>
+
+</html>

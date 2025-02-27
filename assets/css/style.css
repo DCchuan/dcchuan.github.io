@@ -1,18 +1,20 @@
-/* 基础样式 */
+/* 基础样式（保持原有的） */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5; /* 柔和的背景色 */
-    color: #333; /* 文字颜色 */
+    background-color: #f5f5f5;
+    color: #333;
+    transition: background-color 0.3s ease; /* 平滑背景过渡 */
 }
 
 /* 标题样式 */
 h1, h2 {
-    color: #2c3e50; /* 深蓝色标题 */
+    color: #2c3e50;
     text-align: center;
     padding: 20px 0;
+    animation: fadeIn 1s ease-in; /* 淡入动画 */
 }
 
 /* 容器样式 */
@@ -20,16 +22,22 @@ h1, h2 {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* 白色内容区域 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
-    border-radius: 8px; /* 圆角 */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* 悬停缩放 */
 }
 
-/* 导航栏（如果需要） */
+.container:hover {
+    transform: scale(1.02); /* 轻微放大 */
+}
+
+/* 导航栏 */
 nav {
     background-color: #2c3e50;
     padding: 15px;
     text-align: center;
+    animation: slideDown 1s ease-in; /* 滑动动画 */
 }
 
 nav a {
@@ -37,10 +45,12 @@ nav a {
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
+    transition: color 0.3s ease; /* 颜色过渡 */
 }
 
 nav a:hover {
     color: #3498db;
+    text-decoration: underline;
 }
 
 /* 页脚 */
@@ -49,14 +59,39 @@ footer {
     padding: 20px;
     color: #666;
     font-size: 14px;
+    animation: fadeIn 2s ease-in; /* 淡入动画 */
 }
 
 /* 链接样式 */
 a {
-    color: #3498db; /* 链接蓝色 */
+    color: #3498db;
     text-decoration: none;
+    transition: color 0.3s ease; /* 链接颜色过渡 */
 }
 
 a:hover {
     text-decoration: underline;
+    color: #2980b9; /* 更深的蓝色 */
+}
+
+/* 帖子列表 */
+.post-list li {
+    margin: 10px 0;
+    animation: slideIn 0.5s ease-out; /* 帖子列表滑动入场 */
+}
+
+/* 动画定义 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
