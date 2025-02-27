@@ -1,7 +1,8 @@
 title: 我的个人博客
-email: daccuan@gmail.com
-description: 这是我的个人博客，记录生活点滴和学习心得
-baseurl: ""
-url: "https://dcchuan.github.io"  # 替换为你的 GitHub 页面地址
-markdown: kramdown
-theme: minima
+description: 欢迎访问我的博客！
+baseurl: "" # 如果域名是 dcchuan.github.io，不需要子路径
+url: "https://dcchuan.github.io"
+theme: minima # 或其他主题，如果用默认主题
+
+# 帖子设置
+permalink: /:year/:month/:day/:title/

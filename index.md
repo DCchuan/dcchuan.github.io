@@ -1,16 +1,32 @@
 ---
 layout: default
-title: "首页"
+title: 我的个人博客
 ---
 
 # 欢迎来到我的博客！
 
-这里是我的个人博客，记录着我对技术的理解、学习的心路历程以及生活的点点滴滴。
+嗨，欢迎来到我的博客！
 
-> “分享使我成长” — 这是我的座右铭。
+## 导航
+- [首页](#)
+- [关于我](about.html)
+- [所有帖子]({{ site.baseurl }}/posts)
 
-## 最新文章
-
-{% for post in site.posts limit:5 %}
-- [{{ post.title }}]({{ post.url }})
+## 最新帖子
+{% for post in site.posts limit:3 %}
+- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y-%m-%d" }}
 {% endfor %}
+
+## 联系我
+- 邮箱：daccuan@gmail.com
+- GitHub：[我的 GitHub 链接](https://github.com/DCchuan)
+
+<style>
+    .post-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .post-list li {
+        margin: 10px 0;
+    }
+</style>
